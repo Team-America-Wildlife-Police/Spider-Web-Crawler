@@ -1,6 +1,6 @@
 {
   "global": {
-    "port": 80
+    "port": 8888
   },
   "services": ["twitter","gumtree","ebay"],
   "twitter": {
