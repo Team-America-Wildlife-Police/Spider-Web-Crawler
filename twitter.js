@@ -19,9 +19,9 @@ module.exports = {
 
           // Add tweets to results
 
-          tweets.statuses = tweets.statuses.map(function(item) {
+          tweets.statuses.forEach(function(item) {
 
-            return {
+            query.results[item.id_str] = {
               title: item.text,
               user: item.user.screen_name,
               location: item.user.location,
@@ -33,8 +33,6 @@ module.exports = {
             }
 
           })
-
-          query.results = query.results.concat(tweets.statuses);
 
           resolve(query);
 

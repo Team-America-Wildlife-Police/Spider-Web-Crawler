@@ -27,11 +27,11 @@ module.exports = {
 
         if (response) {
 
-          response = response.map(function(item) {
+          response.forEach(function(item) {
 
             if (item.title && item.galleryURL && item.location && item.viewItemURL) {
 
-              return {
+              query.results[item.title[0]] = {
 
                 "title": item.title[0],
                 "image": item.galleryURL[0],
@@ -47,13 +47,7 @@ module.exports = {
 
           })
 
-        } else {
-
-          response = [];
-
         }
-
-        query.results = query.results.concat(response);
 
         resolve(query);
 

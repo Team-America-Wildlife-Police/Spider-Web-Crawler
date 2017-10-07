@@ -1,0 +1,11 @@
+{
+  "species": {
+    "badger": ["badger", "greything"],
+    "tarantula": ["tarantula", "spider"]
+  },
+  "lookoutforweighting": {
+    "live caught": 10,
+    "taxidermy": 3
+  },
+  "exclude": ["terrarium", "statue"]
+}

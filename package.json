@@ -13,6 +13,7 @@
     "express": "^4.16.1",
     "handlebars": "^4.0.10",
     "jsdom": "^11.3.0",
+    "nedb": "^1.8.0",
     "request": "^2.83.0",
     "twitter": "^1.7.1"
   }

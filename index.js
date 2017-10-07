@@ -3,6 +3,7 @@ var fs = require("fs");
 // Read config
 
 global.config = JSON.parse(fs.readFileSync(__dirname + "/config.json"));
+global.searchParams = JSON.parse(fs.readFileSync(__dirname + "/search.json"));
 
 var processChain = function(tasks, parameters, success, fail) {
 
@@ -25,7 +26,7 @@ var search = function(search, count, dateFrom, dateTo) {
     processChain(services, {
       "search": search,
       "count": count,
-      "results": []
+      "results": {}
     }, function(output) {
 
       resolve(output);
@@ -35,6 +36,111 @@ var search = function(search, count, dateFrom, dateTo) {
   })
 
 }
+
+var searchPromises = [];
+var searchResults = {};
+
+Object.keys(searchParams.species).forEach(function(realspecies) {
+
+  var species = searchParams.species[realspecies];
+
+  species.forEach(function(species) {
+
+    var promise = new Promise(function(resolve, reject) {
+
+      search(species).then(function(output) {
+
+        // Filter out excludes
+
+        Object.keys(output.results).forEach(function(id) {
+
+          var item = output.results[id];
+
+          var exclude;
+
+          searchParams.exclude.forEach(function(exclude) {
+
+            if (item.title.indexOf(exclude) !== -1) {
+
+              exclude = true;
+
+            }
+
+          })
+
+          if (exclude) {
+
+            delete output.results[id];
+
+          } else {
+
+            if (!output.results[id].score) {
+
+              output.results[id].score = 0
+
+            }
+
+            Object.keys(searchParams.lookoutforweighting).forEach(function(pointWord) {
+
+              if (output.results[id].title.indexOf(pointWord) !== -1) {
+
+                output.results[id].score += searchParams.lookoutforweighting[pointWord]
+
+              }
+
+            })
+
+          }
+
+          if (!item.species) {
+
+            item.species = []
+
+          }
+
+          if (item.species.indexOf(realspecies) === -1) {
+
+            item.species.push(realspecies)
+
+          }
+
+        });
+
+        searchResults = Object.assign(output.results, searchResults);
+
+        resolve();
+
+      });
+
+    })
+
+    searchPromises.push(promise);
+
+  })
+
+})
+
+var Datastore = require('nedb'),
+  db = new Datastore({
+    filename: __dirname + '/database/database.db',
+    autoload: true
+  });
+
+Promise.all(searchPromises).then(function() {
+
+  Object.keys(searchResults).forEach(function(id) {
+
+    searchResults[id].id = id;
+
+    db.update({
+      id: id
+    }, searchResults[id], {
+      upsert: true
+    });
+
+  })
+
+})
 
 const express = require('express')
 const app = express();
@@ -47,7 +153,7 @@ app.get("/", function(req, res) {
 
   if (req.query.search) {
 
-    search(req.query.search, 100).then(function(output) {
+    search(req.query.search, 1).then(function(output) {
 
       res.send(template({
         results: output.results

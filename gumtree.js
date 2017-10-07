@@ -46,7 +46,11 @@ module.exports = {
         results.shift();
         results.shift();
 
-        query.results = query.results.concat(results);
+        results.forEach(function(element) {
+
+          query.results[element.title] = element;
+
+        })
 
         resolve(query);
 
