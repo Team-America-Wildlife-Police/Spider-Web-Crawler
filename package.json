@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ebay-api": "^1.13.7",
+    "express": "^4.16.1",
     "jsdom": "^11.3.0",
     "request": "^2.83.0",
     "twitter": "^1.7.1"

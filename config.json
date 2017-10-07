@@ -2,7 +2,7 @@
   "global": {
     "port": 80
   },
-  "services": ["twitter","gumtree"],
+  "services": ["twitter","gumtree","ebay"],
   "twitter": {
     "consumer_key": "meb8f1rfsqoVGxO8c9bIJBWQ1",
     "consumer_secret": "XraHrbOKNkrFYvwPCROUjG3Notz946kJTyj5uWwRPe6Ww0g4O7",

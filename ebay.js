@@ -1,38 +1,38 @@
-var ebay = require('ebay-api');
+var request = require('request');
 
-var params = {
-  keywords: ["Canon", "Powershot"],
+module.exports = {
 
-  // add additional fields
-  outputSelector: ['AspectHistogram'],
+  get: function(query) {
 
-  paginationInput: {
-    entriesPerPage: 10
-  },
+    return new Promise(function(resolve, reject) {
 
-  itemFilter: [
-    {name: 'FreeShippingOnly', value: true},
-    {name: 'MaxPrice', value: '150'}
-  ],
+      var params = {
 
-  domainFilter: [
-    {name: 'domainName', value: 'Digital_Cameras'}
-  ]
-};
+        "OPERATION-NAME": "findItemsByKeywords",
+        "SERVICE-VERSION": "1.0.0",
+        "SECURITY-APPNAME": "FilipHnz-spiderwe-PRD-45d865283-42e705e9",
+        "GLOBAL-ID": "EBAY-GB",
+        "RESPONSE-DATA-FORMAT": "JSON",
+        "keywords": query.search
 
-ebay.xmlRequest({
-    serviceName: 'Finding',
-    opType: 'findItemsByKeywords',
-    appId: '......................',      // FILL IN YOUR OWN APP KEY, GET ONE HERE: https://publisher.ebaypartnernetwork.com/PublisherToolsAPI
-    params: params,
-    parser: ebay.parseResponseJson    // (default)
-  },
-  // gets all the items together in a merged array
-  function itemsCallback(error, itemsResponse) {
-    if (error) throw error;
+      }
 
-    var items = itemsResponse.searchResult.item;
-    
+      var url = "http://svcs.ebay.com/services/search/FindingService/v1?" + Object.keys(params).map(function(key) {
+        return key + '=' + params[key];
+      }).join('&');
+
+      request(url, function(error, response, body) {
+
+        var response = JSON.parse(body).findItemsByKeywordsResponse[0].searchResult[0].item;
+
+        query.results.ebay = response;
+
+        resolve(query);
+
+      });
+
+    })
 
   }
-);
+
+}
