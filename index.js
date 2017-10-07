@@ -45,7 +45,7 @@ app.get("/", function(req, res) {
 
   if (req.query.search) {
 
-    search("tarantula", 100).then(function(output) {
+    search(req.query.search, 100).then(function(output) {
 
       res.json(output.results);
 
