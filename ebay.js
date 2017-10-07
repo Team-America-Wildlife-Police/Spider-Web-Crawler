@@ -25,25 +25,33 @@ module.exports = {
 
         var response = JSON.parse(body).findItemsByKeywordsResponse[0].searchResult[0].item;
 
-        response = response.map(function(item) {
+        if (response) {
 
-          if (item.title && item.galleryURL && item.location && item.viewItemURL) {
+          response = response.map(function(item) {
 
-            return {
+            if (item.title && item.galleryURL && item.location && item.viewItemURL) {
 
-              "title": item.title[0],
-              "image": item.galleryURL[0],
-              "location": item.location[0],
-              "url": item.viewItemURL[0],
-              "date": null,
-              "timestamp": Date.now(),
-              "source": "ebay"
+              return {
+
+                "title": item.title[0],
+                "image": item.galleryURL[0],
+                "location": item.location[0],
+                "url": item.viewItemURL[0],
+                "date": null,
+                "timestamp": Date.now(),
+                "source": "ebay"
+
+              }
 
             }
 
-          }
+          })
 
-        })
+        } else {
+
+          response = [];
+
+        }
 
         query.results = query.results.concat(response);
 
