@@ -1,0 +1,13 @@
+{
+  "global": {
+    "port": 80
+  },
+  "services": ["twitter","gumtree"],
+  "twitter": {
+    "consumer_key": "meb8f1rfsqoVGxO8c9bIJBWQ1",
+    "consumer_secret": "XraHrbOKNkrFYvwPCROUjG3Notz946kJTyj5uWwRPe6Ww0g4O7",
+    "access_token_key": "17777326-01nMEXHThyEuTmxXczHjRyBayhGxLyEps60dA5HGU",
+    "access_token_secret": "uxL3aDLiCm8UEdNjOOL7XduRDMZCpjr1lW3PFrgQ3AX1S"
+  }
+
+}
