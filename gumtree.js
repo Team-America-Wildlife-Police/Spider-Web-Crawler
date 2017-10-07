@@ -23,7 +23,7 @@ module.exports = {
 
         for (i = 0; i < ads.length; i++) {
 
-          if (ads[i].getElementsByClassName("listing-title")[0]) {
+          if (ads[i].getElementsByClassName("listing-title")[0] && ads[i].getElementsByClassName("listing-title")[0].textContent.indexOf("▄") === -1) {
 
             results.push({
               title: ads[i].getElementsByClassName("listing-title")[0].textContent.trim(),
