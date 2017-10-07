@@ -11,7 +11,7 @@ module.exports = {
 
     return new Promise(function(resolve, reject) {
 
-      request.get('https://www.gumtree.com/search?search_category=all&q=' + encodeURIComponent(query.search), {}, function(err, res, body) {
+      request.get('https://www.gumtree.com/search?search_category=all&q=' + query.search, {}, function(err, res, body) {
 
         const dom = new JSDOM(body, {
           includeNodeLocations: true
