@@ -23,10 +23,12 @@ module.exports = {
 
             return {
               title: item.text,
-              user: item.user.name,
+              user: item.user.screen_name,
               location: item.user.location,
               image: item.entities.media ? item.entities.media[0].media_url : undefined,
-              source: "twitter"
+              source: "twitter",
+              timestamp: Date.now(),
+              url: "https://twitter.com/statuses/" + item.id_str
 
             }
 

@@ -16,11 +16,9 @@
 
   </form>
 
-  <ul>
-
     {{#each results}}
 
-    <li style="display:block">
+    <a href="{{this.url}}" style="display:block">
       <b>{{this.title}}</b><br />
       <i>{{this.location}}</i><br >
       <b>{{this.source}}</b><br />
@@ -29,13 +27,11 @@
         <img style="block" width="100" heigh="auto" src="{{this.image}}" />
 
       {{/if}}
-    </li>
+    </a>
 
     <hr />
 
     {{/each}}
-
-  </ul>
 
 </body>
 
