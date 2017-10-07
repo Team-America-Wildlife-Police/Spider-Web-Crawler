@@ -25,6 +25,21 @@ module.exports = {
 
         var response = JSON.parse(body).findItemsByKeywordsResponse[0].searchResult[0].item;
 
+        response = response.map(function(item) {
+
+          return {
+
+            "title": item.title[0],
+            "image": item.galleryURL[0],
+            "location": item.location[0],
+            "url": item.viewItemURL[0],
+            "date": null,
+            "timestamp": Date.now()
+
+          }
+
+        })
+
         query.results.ebay = response;
 
         resolve(query);

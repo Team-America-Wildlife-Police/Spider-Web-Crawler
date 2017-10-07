@@ -41,8 +41,6 @@ const app = express()
 
 app.get("/", function(req, res) {
 
-  console.log(req.query);
-
   if (req.query.search) {
 
     search(req.query.search, 100).then(function(output) {

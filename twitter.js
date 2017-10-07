@@ -19,6 +19,17 @@ module.exports = {
 
           // Add tweets to results
 
+          tweets.statuses = tweets.statuses.map(function(item) {
+
+            return {
+              title: item.text,
+              user: item.user.name,
+              location: item.user.location
+
+            }
+
+          })
+
           query.results.twitter = tweets.statuses;
 
           resolve(query);

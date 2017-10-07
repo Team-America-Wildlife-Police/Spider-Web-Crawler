@@ -28,9 +28,17 @@ module.exports = {
             location: ads[i].getElementsByClassName("listing-location")[0].textContent.trim(),
             description: ads[i].getElementsByClassName("listing-description")[0].textContent.trim(),
             price: ads[i].getElementsByClassName("listing-price")[0].textContent.trim(),
-            image: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined
+            image: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined,
+            url: ads[i].getElementsByClassName("listing-link")[0] ? ads[i].getElementsByClassName("listing-link")[0].getAttribute("href") : undefined,
+            timestamp: Date.now()
           });
         }
+
+        // Trim nonsense from start
+
+        results.shift();
+        results.shift();
+        results.shift();
 
         query.results.gumtree = results;
 
