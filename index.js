@@ -67,6 +67,8 @@ app.get("/", function(req, res) {
 
 })
 
+app.use(express.static('static'));
+
 app.listen(config.global.port, function() {
   console.log('Example app listening on port ' + config.global.port)
 })
