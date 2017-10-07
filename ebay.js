@@ -27,20 +27,25 @@ module.exports = {
 
         response = response.map(function(item) {
 
-          return {
+          if (item.title && item.galleryURL && item.location && item.viewItemURL) {
 
-            "title": item.title[0],
-            "image": item.galleryURL[0],
-            "location": item.location[0],
-            "url": item.viewItemURL[0],
-            "date": null,
-            "timestamp": Date.now()
+            return {
+
+              "title": item.title[0],
+              "image": item.galleryURL[0],
+              "location": item.location[0],
+              "url": item.viewItemURL[0],
+              "date": null,
+              "timestamp": Date.now(),
+              "source": "ebay"
+
+            }
 
           }
 
         })
 
-        query.results.ebay = response;
+        query.results = query.results.concat(response);
 
         resolve(query);
 

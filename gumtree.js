@@ -45,7 +45,7 @@ module.exports = {
         results.shift();
         results.shift();
 
-        query.results.gumtree = results;
+        query.results = query.results.concat(results);
 
         resolve(query);
 

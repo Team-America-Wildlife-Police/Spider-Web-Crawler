@@ -7,7 +7,7 @@ module.exports = {
 
     var params = {
       q: query.search,
-      include_entities: false,
+      include_entities: true,
       count: query.count || 1
     };
 
@@ -24,13 +24,14 @@ module.exports = {
             return {
               title: item.text,
               user: item.user.name,
-              location: item.user.location
+              location: item.user.location,
+              image: item.entities.media ? item.entities.media[0].media_url : undefined
 
             }
 
           })
 
-          query.results.twitter = tweets.statuses;
+          query.results = query.results.concat(tweets.statuses);
 
           resolve(query);
 

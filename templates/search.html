@@ -1,0 +1,40 @@
+<!doctype HTML>
+<html>
+
+<head>
+  <title>spiderwebcrawl</title>
+</head>
+
+<body>
+
+  <form>
+
+    <input name="search" placeholder="search" />
+
+    <input type="submit" />
+
+  </form>
+
+  <ul>
+
+    {{#each results}}
+
+    <li style="display:block">
+      <b>{{this.title}}</b><br />
+      <i>{{this.location}}</i><br >
+      {{#if this.image}}
+
+        <img style="block" width="100" heigh="auto" src="{{this.image}}" />
+
+      {{/if}}
+    </li>
+
+    <hr />
+
+    {{/each}}
+
+  </ul>
+
+</body>
+
+</html>

@@ -25,7 +25,7 @@ var search = function(search, count, dateFrom, dateTo) {
     processChain(services, {
       "search": search,
       "count": count,
-      "results": {}
+      "results": []
     }, function(output) {
 
       resolve(output);
@@ -37,15 +37,21 @@ var search = function(search, count, dateFrom, dateTo) {
 }
 
 const express = require('express')
-const app = express()
+const app = express();
+const Handlebars = require('handlebars');
 
 app.get("/", function(req, res) {
+
+  var source = fs.readFileSync(__dirname + "/templates/search.html", "utf8");
+  var template = Handlebars.compile(source);
 
   if (req.query.search) {
 
     search(req.query.search, 100).then(function(output) {
 
-      res.json(output.results);
+      res.send(template({
+        results: output.results
+      }));
 
     }, function(fail) {
 
@@ -55,18 +61,7 @@ app.get("/", function(req, res) {
 
   } else {
 
-    res.send(`
-
-        <form>
-
-        <input name="search" placeholder="search"/>
-
-        <input type="submit"/>
-
-        </form>
-
-
-      `);
+    res.send(template());
 
   }
 
