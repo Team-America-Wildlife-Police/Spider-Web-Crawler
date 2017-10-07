@@ -25,7 +25,8 @@ module.exports = {
               title: item.text,
               user: item.user.name,
               location: item.user.location,
-              image: item.entities.media ? item.entities.media[0].media_url : undefined
+              image: item.entities.media ? item.entities.media[0].media_url : undefined,
+              source: "twitter"
 
             }
 
