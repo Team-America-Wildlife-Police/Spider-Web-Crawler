@@ -34,11 +34,10 @@ module.exports = {
               query.results[item.title[0]] = {
 
                 "title": item.title[0],
-                "image": item.galleryURL[0],
-                "location": item.location[0],
+                "product_img_url": item.galleryURL[0],
+                "post_geolocation": item.location[0],
                 "url": item.viewItemURL[0],
-                "date": null,
-                "timestamp": Date.now(),
+                "date_listed": Date.now(),
                 "source": "ebay"
 
               }

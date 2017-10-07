@@ -126,16 +126,28 @@ var Datastore = require('nedb'),
     autoload: true
   });
 
+var request = require("request");
+
 Promise.all(searchPromises).then(function() {
 
   Object.keys(searchResults).forEach(function(id) {
 
-    searchResults[id].id = id;
+    searchResults[id].uuid = id;
 
-    db.update({
-      id: id
-    }, searchResults[id], {
-      upsert: true
+    var options = {
+      method: 'POST',
+      url: config.global.dbServer + '/post',
+      headers: {
+        'postman-token': 'ebbd654f-be23-4cc0-29e3-a36796d62b1f',
+        'cache-control': 'no-cache',
+        'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+      },
+      formData: searchResults[id]
+    };
+
+    request(options, function(error, response, body) {
+      if (error) throw new Error(error);
+      console.log(body);
     });
 
   })

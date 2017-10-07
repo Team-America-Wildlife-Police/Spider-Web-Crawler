@@ -23,11 +23,11 @@ module.exports = {
 
             query.results[item.id_str] = {
               title: item.text,
-              user: item.user.screen_name,
-              location: item.user.location,
-              image: item.entities.media ? item.entities.media[0].media_url : undefined,
+              username: item.user.screen_name,
+              post_geolocation: item.user.location,
+              prouct_img_url: item.entities.media ? item.entities.media[0].media_url : undefined,
               source: "twitter",
-              timestamp: Date.now(),
+              date_listed: Date.now(),
               url: "https://twitter.com/statuses/" + item.id_str
 
             }

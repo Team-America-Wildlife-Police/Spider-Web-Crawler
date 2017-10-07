@@ -27,12 +27,12 @@ module.exports = {
 
             results.push({
               title: ads[i].getElementsByClassName("listing-title")[0].textContent.trim(),
-              location: ads[i].getElementsByClassName("listing-location")[0].textContent.trim(),
+              post_geolocation: ads[i].getElementsByClassName("listing-location")[0].textContent.trim(),
               description: ads[i].getElementsByClassName("listing-description")[0].textContent.trim(),
               price: ads[i].getElementsByClassName("listing-price")[0] ? ads[i].getElementsByClassName("listing-price")[0].textContent.trim() : undefined,
-              image: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined,
+              product_img_url: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined,
               url: ads[i].getElementsByClassName("listing-link")[0] ? ads[i].getElementsByClassName("listing-link")[0].getAttribute("href") : undefined,
-              timestamp: Date.now(),
+              date_listed: Date.now(),
               source: "gumtree"
             });
 

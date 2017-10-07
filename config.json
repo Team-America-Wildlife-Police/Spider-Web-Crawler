@@ -1,8 +1,9 @@
 {
   "global": {
-    "port": 8888
+    "port": 8888,
+    "dbServer": "https://battle.horse/wildlife"
   },
-  "services": ["gumtree","ebay","twitter"],
+  "services": ["gumtree", "ebay", "twitter"],
   "twitter": {
     "consumer_key": "meb8f1rfsqoVGxO8c9bIJBWQ1",
     "consumer_secret": "XraHrbOKNkrFYvwPCROUjG3Notz946kJTyj5uWwRPe6Ww0g4O7",
