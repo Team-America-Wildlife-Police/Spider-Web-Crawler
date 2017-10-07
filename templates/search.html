@@ -16,22 +16,17 @@
 
   </form>
 
-    {{#each results}}
+  {{#each results}}
 
-    <a href="{{this.url}}" style="display:block">
-      <b>{{this.title}}</b><br />
-      <i>{{this.location}}</i><br >
-      <b>{{this.source}}</b><br />
-      {{#if this.image}}
+  <article>
+    <b>{{this.title}}</b><br />
+    <i>{{this.location}}</i><br>
+    <b>{{this.source}}</b><br /> {{#if this.image}}
+    <img style="block" width="100" heigh="auto" src="{{this.image}}" /> {{/if}}
+    <a href="{{this.url}}" style="display:block">Link</a>
+  </article>
 
-        <img style="block" width="100" heigh="auto" src="{{this.image}}" />
-
-      {{/if}}
-    </a>
-
-    <hr />
-
-    {{/each}}
+  <hr /> {{/each}}
 
 </body>
 
