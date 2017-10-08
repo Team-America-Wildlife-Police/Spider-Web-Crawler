@@ -3,7 +3,7 @@ var fs = require("fs");
 // Read config
 
 global.config = JSON.parse(fs.readFileSync(__dirname + "/config.json"));
-global.searchParams = JSON.parse(fs.readFileSync(__dirname + "/search.json"));
+global.searchParams = JSON.parse(fs.readFileSync(__dirname + "/shortsearch.json"));
 
 var processChain = function(tasks, parameters, success, fail) {
 
@@ -129,6 +129,8 @@ var Datastore = require('nedb'),
 var request = require("request");
 
 Promise.all(searchPromises).then(function() {
+
+  console.log(searchResults);
 
   Object.keys(searchResults).forEach(function(id) {
 
