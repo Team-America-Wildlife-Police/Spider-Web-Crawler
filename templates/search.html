@@ -45,7 +45,7 @@
                     </select>
                 </span>
                 <span class="search-input">
-                    <input type="search" name="search-term" id="search-field" placeholder="Recent trades in..." />
+                    <input type="search" name="search" id="search-field" placeholder="Recent trades in..." />
                 </span>
                 <span class="search-submit">
                     <button class="search-button">
@@ -55,21 +55,30 @@
             </form>
           </section>
 <!-- Search end --->
+
       </div>
     </div>
     <div class="row">
         <div class="twelve columns masonry">
 <!-- Template for an entry from post search -->
+
+{{#each results}}
+
             <section class="sale-entry">
+              {{#if this.product_img_url}}
                 <div class="image-from-post">
-                    <a href="#"><img src="http://via.placeholder.com/500x500"></a>
+                    <a href="#"><img src="{{this.product_img_url}}"></a>
                 </div>
-                <p class="title-from-post">This is a post title or Tweet. This is a post title or Tweet.</p>
-                <p class="user-from-post">User name here</p>
-                <p class="date-from-post">DD-MM-YY</p>
+              {{/if}}
+                <p class="title-from-post">{{this.title}}</p>
+                <p class="user-from-post">{{this.username}}</p>
+                <p class="date-from-post">{{this.timestamp}}</p>
                 <p class="wrong-post"><a href="#">Oops, not a wildlife sale</a></p>
             </section>
+
+{{/each}}
 <!-- Template for entries by seller search -->
+{{#if results}}
             <section class="seller-entry">
                 <div class="seller-image">
                     <a href="#"><img src="http://via.placeholder.com/500x500"></a>
@@ -78,10 +87,12 @@
                 <p class="seller-activity">Last active: 22 hours ago</p>
                 <p class="standard-text">Total in the last 30 days:</p>
                 <p class="seller-value">£8,000,000</p>
-                <p class="seller-sales">50 posts</p>
+                <p class="seller-sales">{{results.length}} posts</p>
 
                 <p class="wrong-post"><a href="#">Oops, not a wildlife trader</a></p>
             </section>
+
+{{/if}}
         </div>
     </div>
   </div>

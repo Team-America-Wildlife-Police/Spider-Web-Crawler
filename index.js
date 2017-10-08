@@ -179,6 +179,14 @@ app.get("/", function(req, res) {
 
     search(req.query.search, 1).then(function(output) {
 
+      // Change to array
+
+      output.results = Object.keys(output.results).map(function(id) {
+
+        return output.results[id];
+
+      })
+
       res.send(template({
         results: output.results
       }));
