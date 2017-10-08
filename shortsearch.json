@@ -1,7 +1,7 @@
 {
   "species": {
     "Brachypelma": ["Brachypelma", "Euathlus smithi", "Red-kneed Tarantula", "Mexican Red Knee Tarantula", "Mexican Tarantula", "Red Knee Tarantula"],
-    "Thrigmopoeus insignis": ["Thrigmopoeus insignis", "Notable Large Burrowing Spider", "Large Burrowing Spider"],
+    "Thrigmopoeus insignis": ["Thrigmopoeus insignis", "Notable Large Burrowing Spider", "Large Burrowing Spider"]
   },
   "lookoutforweighting": {
     "Theraphosidae": 5,

@@ -23,18 +23,26 @@ module.exports = {
 
         for (i = 0; i < ads.length; i++) {
 
-          if (ads[i].getElementsByClassName("listing-title")[0] && ads[i].getElementsByClassName("listing-title")[0].textContent.indexOf("▄") === -1) {
+          try {
 
-            results.push({
-              title: ads[i].getElementsByClassName("listing-title")[0].textContent.trim(),
-              post_geolocation: ads[i].getElementsByClassName("listing-location")[0].textContent.trim(),
-              description: ads[i].getElementsByClassName("listing-description")[0].textContent.trim(),
-              price: ads[i].getElementsByClassName("listing-price")[0] ? ads[i].getElementsByClassName("listing-price")[0].textContent.trim() : undefined,
-              product_img_url: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined,
-              url: ads[i].getElementsByClassName("listing-link")[0] ? "https://gumtree.com/" + ads[i].getElementsByClassName("listing-link")[0].getAttribute("href") : undefined,
-              date_listed: Date.now(),
-              source: "gumtree"
-            });
+            if (ads[i].getElementsByClassName("listing-title")[0] && ads[i].getElementsByClassName("listing-title")[0].textContent.indexOf("▄") === -1) {
+
+              results.push({
+                title: ads[i].getElementsByClassName("listing-title")[0].textContent.trim(),
+                post_geolocation: ads[i].getElementsByClassName("listing-location")[0].textContent.trim(),
+                description: ads[i].getElementsByClassName("listing-description")[0].textContent.trim(),
+                price: ads[i].getElementsByClassName("listing-price")[0] ? ads[i].getElementsByClassName("listing-price")[0].textContent.trim() : undefined,
+                product_img_url: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined,
+                url: ads[i].getElementsByClassName("listing-link")[0] ? "https://gumtree.com/" + ads[i].getElementsByClassName("listing-link")[0].getAttribute("href") : undefined,
+                date_listed: Date.now(),
+                source: "gumtree"
+              });
+
+            }
+
+          } catch (e) {
+
+            console.log(e);
 
           }
 

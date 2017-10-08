@@ -29,6 +29,8 @@ module.exports = {
 
           response.forEach(function(item) {
 
+            try {
+
             if (item.title && item.galleryURL && item.location && item.viewItemURL) {
 
               query.results[item.title[0]] = {
@@ -43,6 +45,12 @@ module.exports = {
               }
 
             }
+
+          } catch(e){
+
+            console.log(e);
+
+          }
 
           })
 

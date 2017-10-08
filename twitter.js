@@ -21,14 +21,21 @@ module.exports = {
 
           tweets.statuses.forEach(function(item) {
 
-            query.results[item.id_str] = {
-              title: item.text,
-              username: item.user.screen_name,
-              post_geolocation: item.user.location,
-              prouct_img_url: item.entities.media ? item.entities.media[0].media_url : undefined,
-              source: "twitter",
-              date_listed: Date.now(),
-              url: "https://twitter.com/statuses/" + item.id_str
+            try {
+              query.results[item.id_str] = {
+                title: item.text,
+                username: item.user.screen_name,
+                post_geolocation: item.user.location,
+                prouct_img_url: item.entities.media ? item.entities.media[0].media_url : undefined,
+                source: "twitter",
+                date_listed: Date.now(),
+                url: "https://twitter.com/statuses/" + item.id_str
+
+              }
+
+            } catch (e) {
+
+              console.log(e);
 
             }
 

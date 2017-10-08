@@ -31,7 +31,7 @@ var search = function(search, count, dateFrom, dateTo) {
 
       resolve(output);
 
-    });
+    })
 
   })
 
@@ -130,40 +130,66 @@ var request = require("request");
 
 Promise.all(searchPromises).then(function() {
 
-  console.log(searchResults);
-
   Object.keys(searchResults).forEach(function(id) {
 
-    searchResults[id].uuid = id;
+    try {
 
-    var options = {
-      method: 'POST',
-      url: config.global.dbServer + '/post',
-      headers: {
-        'postman-token': 'ebbd654f-be23-4cc0-29e3-a36796d62b1f',
-        'cache-control': 'no-cache',
-        'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
-      },
-      formData: searchResults[id]
-    };
+      searchResults[id].uuid = id.toString();
 
-    if (config.global.live) {
+      var options = {
+        method: 'POST',
+        url: config.global.dbServer + '/post',
+        headers: {
+          'cache-control': 'no-cache',
+          'content-type': 'multipart/form-data'
+        }
+      };
 
-      request(options, function(error, response, body) {
-        if (error) throw new Error(error);
-      });
+      if (searchResults[id]) {
 
-    } else {
+        options.formData = searchResults[id]
 
-      db.update({
-        "uuid": id
-      }, searchResults[id], {
-        upsert: true
-      });
+      } else {
+
+        return false;
+
+      }
+
+      if (config.global.live) {
+
+          Object.keys(options.formData).forEach(function(key) {
+
+            if(!options.formData[key]){
+
+              delete options.formData[key]
+
+            }
+
+          })
+
+          request(options);
+
+      } else {
+
+        db.update({
+          "uuid": id
+        }, searchResults[id], {
+          upsert: true
+        });
+
+      }
+
+    } catch (e) {
+
+      console.log(e);
 
     }
 
   })
+
+}, function(fail) {
+
+  console.log("fail", fail);
 
 })
 
@@ -184,7 +210,7 @@ app.get("/", function(req, res) {
       method: 'GET',
       url: config.global.dbServer + '/post',
       qs: {
-        where: '{"description": {"$regex": ".*' + req.query.search + '.*"}}'
+        where: '{"description": {"$regex": ".*' + req.query.search + '.*", "$options": "-i"}}'
       },
       headers: {
         'postman-token': '24490f7e-2bf5-a81e-bb62-5feca4605895',
