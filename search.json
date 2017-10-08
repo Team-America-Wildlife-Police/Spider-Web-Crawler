@@ -43,7 +43,7 @@
     "preserved": 3,
     "pinned": 3,
     "collection": 2
-    "ornament": 1
+    "ornament": 1,
   },
   "exclude": ["terrarium", "statue", "remote control", "toy", "substrate", "book", "poster", "cookie", "mug", "costume", "plastic"]
 }
