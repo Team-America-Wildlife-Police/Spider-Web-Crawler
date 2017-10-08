@@ -1,11 +1,11 @@
 {
   "species": {
-    "scorpion": ["emperor scorpion", "stingy"],
+    "scorpion": ["emperor scorpion", "stingy", "big hairy"],
     "tarantula": ["tarantula", "spider"]
   },
   "lookoutforweighting": {
     "live caught": 10,
     "taxidermy": 3
   },
-  "exclude": ["terrarium", "statue"]
+  "exclude": ["terrarium", "statue", "remote control", "toy"]
 }

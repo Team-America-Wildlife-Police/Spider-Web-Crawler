@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Basic -->
   <meta charset="utf-8">
@@ -13,94 +14,97 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
   <!-- Favicon
   <link rel="icon" type="image/png" href="images/favicon.png">
 -->
 </head>
-<body id="home">
-<div id="wrapper">
-	<nav id="nav" class="nav-collapse" role="navigation">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">page 1</a></li>
-				<li><a href="#">page 2</a></li>
-				<li><a href="#">page 3</a></li>
-				<li><a href="#">page 4</a></li>
-				<li><a href="#">page 5</a></li>
-			</ul>
-		</nav>
 
-<!-- START MAIN CONTENT-->
-   <div class="container">
-    <div class="row">
-      <div class="twelve columns">
+<body id="home">
+  <div id="wrapper">
+    <nav id="nav" class="nav-collapse" role="navigation">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">page 1</a></li>
+        <li><a href="#">page 2</a></li>
+        <li><a href="#">page 3</a></li>
+        <li><a href="#">page 4</a></li>
+        <li><a href="#">page 5</a></li>
+      </ul>
+    </nav>
+
+    <!-- START MAIN CONTENT-->
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
           <h1>Wild Trade</h1>
-<!-- Search start --->
-        <section class="search-form">
+          <!-- Search start --->
+          <section class="search-form">
             <form action="" method="GET" name="search" role="search">
-                <span class="search-category">
+              <span class="search-category">
                     <select name="search categories" id="categories">
                       <option value="find-sellers" selected>Sellers</option>
                       <option value="find-posts">Sale ads</option>
                     </select>
                 </span>
-                <span class="search-input">
+              <span class="search-input">
                     <input type="search" name="search" id="search-field" placeholder="Recent trades in..." />
                 </span>
-                <span class="search-submit">
+              <span class="search-submit">
                     <button class="search-button">
                       <span class="icon"><i class="fa fa-search"></i></span>
-                    </button>
-                </span>
+              </button>
+              </span>
             </form>
           </section>
-<!-- Search end --->
+          <!-- Search end --->
 
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns masonry">
+          <!-- Template for an entry from post search -->
+
+          {{#each results}}
+
+          <section class="sale-entry">
+            {{#if this.product_img_url}}
+            <div class="image-from-post">
+              <a href="#"><img src="{{this.product_img_url}}"></a>
+            </div>
+            {{/if}}
+            <p class="title-from-post">{{this.title}}</p>
+            <p class="user-from-post">{{this.username}}</p>
+            <p class="date-from-post">{{this.timestamp}}</p>
+            <p class="description">{{this.description}}</p>
+            <p class="source">Listed on: <b>{{this.source}}</b></p>
+            <p class="wrong-post"><a href="#">Oops, not a wildlife sale</a></p>
+          </section>
+
+          {{/each}}
+          <!-- Template for entries by seller search -->
+          {{#if results}}
+          <section class="seller-entry">
+            <div class="seller-image">
+              <a href="#"><img src="http://via.placeholder.com/500x500"></a>
+            </div>
+            <p class="seller-username">User name here</p>
+            <p class="seller-activity">Last active: 22 hours ago</p>
+            <p class="standard-text">Total in the last 30 days:</p>
+            <p class="seller-value">£8,000,000</p>
+            <p class="seller-sales">{{results.length}} posts</p>
+
+            <p class="wrong-post"><a href="#">Oops, not a wildlife trader</a></p>
+          </section>
+
+          {{/if}}
+        </div>
       </div>
     </div>
-    <div class="row">
-        <div class="twelve columns masonry">
-<!-- Template for an entry from post search -->
 
-{{#each results}}
+    <!-- END MAIN CONTENT-->
 
-            <section class="sale-entry">
-              {{#if this.product_img_url}}
-                <div class="image-from-post">
-                    <a href="#"><img src="{{this.product_img_url}}"></a>
-                </div>
-              {{/if}}
-                <p class="title-from-post">{{this.title}}</p>
-                <p class="user-from-post">{{this.username}}</p>
-                <p class="date-from-post">{{this.timestamp}}</p>
-                <p class="wrong-post"><a href="#">Oops, not a wildlife sale</a></p>
-            </section>
-
-{{/each}}
-<!-- Template for entries by seller search -->
-{{#if results}}
-            <section class="seller-entry">
-                <div class="seller-image">
-                    <a href="#"><img src="http://via.placeholder.com/500x500"></a>
-                </div>
-                                <p class="seller-username">User name here</p>
-                <p class="seller-activity">Last active: 22 hours ago</p>
-                <p class="standard-text">Total in the last 30 days:</p>
-                <p class="seller-value">£8,000,000</p>
-                <p class="seller">{{this.source}}</p>
-                <p class="seller-sales">{{results.length}} posts</p>
-
-                <p class="wrong-post"><a href="#">Oops, not a wildlife trader</a></p>
-            </section>
-
-{{/if}}
-        </div>
-    </div>
-  </div>
-
-<!-- END MAIN CONTENT-->
-
-<!--<div id="footer-down"></div>
+    <!--<div id="footer-down"></div>
 	<footer id="page-footer">
 		<div class="container">
 		  <div class="row">
@@ -113,9 +117,10 @@
 	</footer>
 </div>
 -->
-<!-- FOR ALL PAGES -->
-	<script>
-	var navigation = responsiveNav("#nav");
-	</script>
+    <!-- FOR ALL PAGES -->
+    <script>
+      var navigation = responsiveNav("#nav");
+    </script>
 </body>
+
 </html>
