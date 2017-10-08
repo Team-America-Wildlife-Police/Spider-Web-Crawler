@@ -18,7 +18,7 @@
     "Isometrus deharvengi": ["Isometrus deharvengi", "Buthid"],
     "Lychas braueri": ["Lychas braueri", "Buthid", "Seychelles forest scorpion", "Seychelles scorpion"],
     "Chiromachus ochropus": ["Chiromachus ochropus", "Ischnurus ochropus", "Seychelles giant scorpion", "Seychelles scorpion"],
-    "Pandinus sp.": ["Emperor Scorpion","Pandinus", "africanus", "imperator", "dictator", "gambiensis", "cavimanus" "viatoris"]
+    "Pandinus sp.": ["Emperor Scorpion","Pandinus", "africanus", "imperator", "dictator", "gambiensis", "cavimanus", "viatoris"]
   },
   "lookoutforweighting": {
     "Theraphosidae": 5,
