@@ -1,0 +1,31 @@
+{
+  "species": {
+    "Brachypelma": ["Brachypelma", "Euathlus smithi", "Red-kneed Tarantula", "Mexican Red Knee Tarantula", "Mexican Tarantula", "Red Knee Tarantula"],
+    "Thrigmopoeus insignis": ["Thrigmopoeus insignis", "Notable Large Burrowing Spider", "Large Burrowing Spider"],
+  },
+  "lookoutforweighting": {
+    "Theraphosidae": 5,
+    "live caught": 12,
+    "live": 10,
+    "spiderling": 10,
+    "spiderlings": 10,
+    "taxidermy": 3,
+    "available": 5,
+    "for sale": 5,
+    "Carapace": 3,
+    "Bodies": 3,
+    "Skins": 2,
+    "specimen": 3,
+    "Trophies": 2,
+    "Trophy": 2,
+    "Mount": 3,
+    "Mounted": 3,
+    "taxidermied": 3,
+    "Framed": 2,
+    "frame": 1,
+    "preserved": 3,
+    "pinned": 3,
+    "collection": 2
+  },
+  "exclude": ["terrarium", "vivarium", "statue", "remote control", "toy", "substrate", "book", "poster", "cookie", "mug", "costume", "plastic"]
+}
