@@ -28,5 +28,5 @@
     "collection": 2,
     "ornament": 1
   },
-  "exclude": ["terrarium", "statue", "remote control", "toy", "substrate", "book", "poster", "cookie", "mug", "costume", "plastic", "photographic", "print", "canvas"]
+  "exclude": ["terrarium", "vivarium", "statue", "remote control", "toy", "substrate", "book", "poster", "cookie", "mug", "costume", "plastic", "photographic", "print", "canvas"]
 }
