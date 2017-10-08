@@ -1,11 +1,47 @@
 {
   "species": {
-    "scorpion": ["emperor scorpion", "stingy", "big hairy"],
-    "tarantula": ["tarantula", "spider"]
+    "Brachypelma": ["Brachypelma", "Euathlus smithi", "Red-kneed Tarantula", "Mexican Red Knee Tarantula", "Mexican Tarantula", "Red Knee Tarantula"],
+    "Poecilotheria": ["formosa", "hanumavilasumica", "p. metallica", "p. miranda", "nallamalaiensis", "regalis", "rufilata", "striata", "tigrinawesseli", "Ornithoctonus gadgili", "vittata", "Parachute Spider", "Beautiful Parachute Spider", "Finely Formed Parachute Spider", "Rameshwaram Ornamental", "Rameshwaram Parachute Spider", "Peacock Tarantula", "Gooty Tarantula", "Metallic Tarantula", "Peacock Parachute Spider", "Salepurgu", "Bengal Ornamental", "Wonderful Parachute Spider", "Nallamala's Parachute Spider", "Indian Ornamental", "King Parachute Spider", "Regal Parachute Spider", "Reddish Parachute Spider", "Red Slate Ornamental", "Rufus Parachute Spider", "Travancore Slate-red", "Mysore Ornamental", "Striated Parachute Spider", "Striped Parachute Spider", "Anantagiri's Parachute Spider"],
+    "Thrigmopoeus insignis": ["Thrigmopoeus insignis", "Notable Large Burrowing Spider", "Large Burrowing Spider"],
+    "Thrigmopoeus truculentus": ["Thrigmopoeus truculentus", "Karwar Large Burrowing Spider", "Large Burrowing Spider"],
+    "Chilobrachys fimbriata": ["Chilobrachys fimbriata", "Fimbriated Striated Burrowing Spider", "Indian Violet"],
+    "Chilobrachys hardwicki": ["Chilobrachys hardwicki", "Eastern Indian Striated Burrowing Spider"],
+    "Grammostola vachoni": ["Grammostola vachoni"],
+    "Hapoclastus kayi": ["Hapoclastus kayi", "Parambikulam Large Burrowing Spider"],
+    "Nesiergus gardineri": ["Nesiergus gardineri", "Chaetopelma gardineri"],
+    "Nesiergus halophilus": ["Nesiergus halophilus"],
+    "Nesiergus insulanus": ["Nesiergus insulanus"],
+    "Ybyrapora gamba": ["Ybyrapora gamba"],
+    "Avicularia sp.": ["Avicularia sp."],
+    "Pterinopelma sazimai": ["Pterinopelma sazimai"],
+    "Eresus": ["Eresus", "ladybird spider", "ladybug spider"],
+    "Isometrus deharvengi": ["Isometrus deharvengi", "Buthid"],
+    "Lychas braueri": ["Lychas braueri", "Buthid", "Seychelles forest scorpion", "Seychelles scorpion"],
+    "Chiromachus ochropus": ["Chiromachus ochropus", "Ischnurus ochropus", "Seychelles giant scorpion", "Seychelles scorpion"],
+    "Pandinus sp.": ["Emperor Scorpion","Pandinus", "africanus", "imperator", "dictator", "gambiensis", "cavimanus" "viatoris"]
   },
   "lookoutforweighting": {
-    "live caught": 10,
-    "taxidermy": 3
+    "Theraphosidae": 5,
+    "live caught": 12,
+    "live": 10,
+    "spiderling": 10,
+    "spiderlings": 10,
+    "taxidermy": 3,
+    "available": 5,
+    "for sale": 5,
+    "Carapace": 3,
+    "Bodies": 3,
+    "Skins": 2,
+    "specimen": 3,
+    "Trophies": 2,
+    "Trophy": 2,
+    "Mount": 3,
+    "Mounted": 3,
+    "taxidermied": 3,
+    "Framed": 2,
+    "frame": 1,
+    "preserved": 3,
+    "pinned": 3
   },
-  "exclude": ["terrarium", "statue", "remote control", "toy"]
+  "exclude": ["terrarium", "statue", "remote control", "toy", "substrate"]
 }
