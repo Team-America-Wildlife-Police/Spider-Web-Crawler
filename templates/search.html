@@ -1,33 +1,109 @@
-<!doctype HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>spiderwebcrawl</title>
-  <link rel="stylesheet" href="/style.css">
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <title>Project</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/responsive-nav.js"></script>
+  <!-- FONT ICONS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon
+  <link rel="icon" type="image/png" href="images/favicon.png">
+-->
 </head>
+<body id="home">
+<div id="wrapper">
+	<nav id="nav" class="nav-collapse" role="navigation">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">page 1</a></li>
+				<li><a href="#">page 2</a></li>
+				<li><a href="#">page 3</a></li>
+				<li><a href="#">page 4</a></li>
+				<li><a href="#">page 5</a></li>
+			</ul>
+		</nav>
 
-<body>
+<!-- START MAIN CONTENT-->
+   <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+          <h1>Wild Trade</h1>
+<!-- Search start --->
+        <section class="search-form">
+            <form action="" method="GET" name="search" role="search">
+                <span class="search-category">
+                    <select name="search categories" id="categories">
+                      <option value="find-sellers" selected>Sellers</option>
+                      <option value="find-posts">Sale ads</option>
+                    </select>
+                </span>
+                <span class="search-input">
+                    <input type="search" name="search-term" id="search-field" placeholder="Recent trades in..." />
+                </span>
+                <span class="search-submit">
+                    <button class="search-button">
+                      <span class="icon"><i class="fa fa-search"></i></span>
+                    </button>
+                </span>
+            </form>
+          </section>
+<!-- Search end --->
+      </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns masonry">
+<!-- Template for an entry from post search -->
+            <section class="sale-entry">
+                <div class="image-from-post">
+                    <a href="#"><img src="http://via.placeholder.com/500x500"></a>
+                </div>
+                <p class="title-from-post">This is a post title or Tweet. This is a post title or Tweet.</p>
+                <p class="user-from-post">User name here</p>
+                <p class="date-from-post">DD-MM-YY</p>
+                <p class="wrong-post"><a href="#">Oops, not a wildlife sale</a></p>
+            </section>
+<!-- Template for entries by seller search -->
+            <section class="seller-entry">
+                <div class="seller-image">
+                    <a href="#"><img src="http://via.placeholder.com/500x500"></a>
+                </div>
+                                <p class="seller-username">User name here</p>
+                <p class="seller-activity">Last active: 22 hours ago</p>
+                <p class="standard-text">Total in the last 30 days:</p>
+                <p class="seller-value">£8,000,000</p>
+                <p class="seller-sales">50 posts</p>
 
-  <form>
+                <p class="wrong-post"><a href="#">Oops, not a wildlife trader</a></p>
+            </section>
+        </div>
+    </div>
+  </div>
 
-    <input name="search" placeholder="search" />
+<!-- END MAIN CONTENT-->
 
-    <input type="submit" />
-
-  </form>
-
-  {{#each results}}
-
-  <article>
-    <b>{{this.title}}</b><br />
-    <i>{{this.location}}</i><br>
-    <b>{{this.source}}</b><br /> {{#if this.image}}
-    <img style="block" width="100" heigh="auto" src="{{this.image}}" /> {{/if}}
-    <a href="{{this.url}}" style="display:block">Link</a>
-  </article>
-
-  <hr /> {{/each}}
-
+<!--<div id="footer-down"></div>
+	<footer id="page-footer">
+		<div class="container">
+		  <div class="row">
+			  <div class="twelve columns">
+				  <h1>Footer title H1</h1>
+				  <p>This is the footer <a href="#">with a link</a>. Cotton candy bear claw caramels candy cake candy canes jelly. Tiramisu tart cheesecake lollipop sweet roll jelly beans. Topping cake dessert soufflé. Sugar plum topping sugar plum lemon drops chocolate bar dragée. Cookie carrot cake sesame snaps sweet cotton candy. Tart toffee cookie bear claw. Ice cream cake chocolate bar pastry marzipan bonbon biscuit. Dragée cupcake powder cake.</p>
+			  </div>
+			</div>
+		</div>
+	</footer>
+</div>
+-->
+<!-- FOR ALL PAGES -->
+	<script>
+	var navigation = responsiveNav("#nav");
+	</script>
 </body>
-
 </html>

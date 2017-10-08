@@ -1,0 +1,33 @@
+<!doctype HTML>
+<html>
+
+<head>
+  <title>spiderwebcrawl</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <form>
+
+    <input name="search" placeholder="search" />
+
+    <input type="submit" />
+
+  </form>
+
+  {{#each results}}
+
+  <article>
+    <b>{{this.title}}</b><br />
+    <i>{{this.location}}</i><br>
+    <b>{{this.source}}</b><br /> {{#if this.image}}
+    <img style="block" width="100" heigh="auto" src="{{this.image}}" /> {{/if}}
+    <a href="{{this.url}}" style="display:block">Link</a>
+  </article>
+
+  <hr /> {{/each}}
+
+</body>
+
+</html>
