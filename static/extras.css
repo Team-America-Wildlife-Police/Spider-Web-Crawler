@@ -5,3 +5,5 @@ b {
 a:link, a:visited {
   color:inherit;
 }
+
+* {word-break: break-all !important}

@@ -60,7 +60,7 @@ Object.keys(searchParams.species).forEach(function(realspecies) {
 
           searchParams.exclude.forEach(function(exclude) {
 
-            if (item.title.indexOf(exclude) !== -1) {
+            if (item.title.toLowerCase().indexOf(exclude.toLowerCase()) !== -1) {
 
               exclude = true;
 
@@ -210,7 +210,8 @@ app.get("/", function(req, res) {
       method: 'GET',
       url: config.global.dbServer + '/post',
       qs: {
-        where: '{"title": {"$regex": ".*' + req.query.search + '.*", "$options": "-i"}}'
+        where: '{"title": {"$regex": ".*' + req.query.search + '.*", "$options": "-i"}}',
+        sort: 'score'
       },
       headers: {
         'postman-token': '24490f7e-2bf5-a81e-bb62-5feca4605895',
