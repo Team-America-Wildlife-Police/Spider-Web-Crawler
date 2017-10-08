@@ -210,7 +210,7 @@ app.get("/", function(req, res) {
       method: 'GET',
       url: config.global.dbServer + '/post',
       qs: {
-        where: '{"description": {"$regex": ".*' + req.query.search + '.*", "$options": "-i"}}'
+        where: '{"title": {"$regex": ".*' + req.query.search + '.*", "$options": "-i"}}'
       },
       headers: {
         'postman-token': '24490f7e-2bf5-a81e-bb62-5feca4605895',
