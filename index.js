@@ -145,10 +145,22 @@ Promise.all(searchPromises).then(function() {
       formData: searchResults[id]
     };
 
-    request(options, function(error, response, body) {
-      if (error) throw new Error(error);
-      console.log(body);
-    });
+    if (config.live) {
+
+      request(options, function(error, response, body) {
+        if (error) throw new Error(error);
+        console.log(body);
+      });
+
+    } else {
+
+      db.update({
+        "uuid": id
+      }, searchResults[id], {
+        upsert: true
+      });
+
+    }
 
   })
 

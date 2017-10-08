@@ -1,7 +1,8 @@
 {
   "global": {
     "port": 8888,
-    "dbServer": "https://battle.horse/wildlife"
+    "dbServer": "https://battle.horse/wildlife",
+    "live": false
   },
   "services": ["gumtree", "ebay", "twitter"],
   "twitter": {
