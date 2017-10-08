@@ -145,11 +145,10 @@ Promise.all(searchPromises).then(function() {
       formData: searchResults[id]
     };
 
-    if (config.live) {
+    if (config.global.live) {
 
       request(options, function(error, response, body) {
         if (error) throw new Error(error);
-        console.log(body);
       });
 
     } else {
@@ -177,23 +176,27 @@ app.get("/", function(req, res) {
 
   if (req.query.search) {
 
-    search(req.query.search, 1).then(function(output) {
+    var request = require("request");
 
-      // Change to array
+    var options = {
+      method: 'GET',
+      url: config.global.dbServer + '/post',
+      qs: {
+        where: '{"description": {"$regex": ".*' + req.query.search + '.*"}}'
+      },
+      headers: {
+        'postman-token': '24490f7e-2bf5-a81e-bb62-5feca4605895',
+        'cache-control': 'no-cache'
+      }
+    };
 
-      output.results = Object.keys(output.results).map(function(id) {
+    request(options, function(error, response, body) {
 
-        return output.results[id];
-
-      })
+      var output = JSON.parse(body);
 
       res.send(template({
-        results: output.results
+        results: JSON.parse(body)._items
       }));
-
-    }, function(fail) {
-
-      res.status(500).send("Error");
 
     })
 
