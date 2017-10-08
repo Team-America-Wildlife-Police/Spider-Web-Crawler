@@ -31,7 +31,7 @@ module.exports = {
               description: ads[i].getElementsByClassName("listing-description")[0].textContent.trim(),
               price: ads[i].getElementsByClassName("listing-price")[0] ? ads[i].getElementsByClassName("listing-price")[0].textContent.trim() : undefined,
               product_img_url: ads[i].getElementsByTagName("img")[0] ? ads[i].getElementsByTagName("img")[0].getAttribute("data-lazy") : undefined,
-              url: ads[i].getElementsByClassName("listing-link")[0] ? ads[i].getElementsByClassName("listing-link")[0].getAttribute("href") : undefined,
+              url: ads[i].getElementsByClassName("listing-link")[0] ? "https://gumtree.com/" + ads[i].getElementsByClassName("listing-link")[0].getAttribute("href") : undefined,
               date_listed: Date.now(),
               source: "gumtree"
             });
