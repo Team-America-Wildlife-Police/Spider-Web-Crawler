@@ -70,14 +70,15 @@
           <section class="sale-entry">
             {{#if this.product_img_url}}
             <div class="image-from-post">
-              <a href="#"><img src="{{this.product_img_url}}"></a>
+              <a href="{{this.url}}"><img src="{{this.product_img_url}}"></a>
             </div>
             {{/if}}
             <p class="title-from-post">{{this.title}}</p>
             <p class="user-from-post">{{this.username}}</p>
             <p class="date-from-post">{{this.timestamp}}</p>
             <p class="description">{{this.description}}</p>
-            <p class="source">Listed on: <b>{{this.source}}</b></p>
+            <a href="{{this.url}}" class="source">View on: <b>{{this.source}}</b></a>
+            <br />
             <p class="wrong-post"><a href="#">Oops, not a wildlife sale</a></p>
           </section>
 

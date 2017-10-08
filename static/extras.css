@@ -1,3 +1,7 @@
 b {
   font-weight: bold;
 }
+
+a:link, a:visited {
+  color:inherit;
+}
