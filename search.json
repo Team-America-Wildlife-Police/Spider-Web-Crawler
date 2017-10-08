@@ -1,7 +1,7 @@
 {
   "species": {
     "Brachypelma": ["Brachypelma", "Euathlus smithi", "Red-kneed Tarantula", "Mexican Red Knee Tarantula", "Mexican Tarantula", "Red Knee Tarantula"],
-    "Poecilotheria": ["formosa", "hanumavilasumica", "p. metallica", "p. miranda", "nallamalaiensis", "regalis", "rufilata", "striata", "tigrinawesseli", "Ornithoctonus gadgili", "vittata", "Ornamental indian tree tarantula", "ornamental tarantula", "Parachute Spider", "Beautiful Parachute Spider", "Finely Formed Parachute Spider", "Rameshwaram Ornamental", "Rameshwaram Parachute Spider", "Peacock Tarantula", "Gooty Tarantula", "Metallic Tarantula", "Peacock Parachute Spider", "Salepurgu", "Bengal Ornamental", "Wonderful Parachute Spider", "Nallamala's Parachute Spider", "Indian Ornamental", "King Parachute Spider", "Regal Parachute Spider", "Reddish Parachute Spider", "Red Slate Ornamental", "Rufus Parachute Spider", "Travancore Slate-red", "Mysore Ornamental", "Striated Parachute Spider", "Striped Parachute Spider", "Anantagiri's Parachute Spider"],
+    "Poecilotheria": ["formosa", "hanumavilasumica", "p. metallica", "Poecilotheria metallica", "Poecilotheria miranda" "p. miranda", "nallamalaiensis", "regalis", "rufilata", "striata", "tigrinawesseli", "Ornithoctonus gadgili", "vittata", "Ornamental indian tree tarantula", "ornamental tarantula", "Parachute Spider", "Beautiful Parachute Spider", "Finely Formed Parachute Spider", "Rameshwaram Ornamental", "Rameshwaram Parachute Spider", "Peacock Tarantula", "Gooty Tarantula", "Metallic Tarantula", "Peacock Parachute Spider", "Salepurgu", "Bengal Ornamental", "Wonderful Parachute Spider", "Nallamala's Parachute Spider", "Indian Ornamental", "King Parachute Spider", "Regal Parachute Spider", "Reddish Parachute Spider", "Red Slate Ornamental", "Rufus Parachute Spider", "Travancore Slate-red", "Mysore Ornamental", "Striated Parachute Spider", "Striped Parachute Spider", "Anantagiri's Parachute Spider", "tiger spider"],
     "Thrigmopoeus insignis": ["Thrigmopoeus insignis", "Notable Large Burrowing Spider", "Large Burrowing Spider"],
     "Thrigmopoeus truculentus": ["Thrigmopoeus truculentus", "Karwar Large Burrowing Spider", "Large Burrowing Spider"],
     "Chilobrachys fimbriata": ["Chilobrachys fimbriata", "Fimbriated Striated Burrowing Spider", "Indian Violet"],
@@ -43,6 +43,7 @@
     "preserved": 3,
     "pinned": 3,
     "collection": 2
+    "ornament": 1
   },
   "exclude": ["terrarium", "statue", "remote control", "toy", "substrate", "book", "poster", "cookie", "mug", "costume", "plastic"]
 }
